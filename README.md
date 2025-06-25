@@ -2,6 +2,8 @@
 
 A Ruby wrapper for the Browse AI API.
 
+https://www.browse.ai/docs/api/v2
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -60,7 +62,22 @@ Get a robot's webhooks.
 webhooks = BrowseAi.client.get_webhooks(robot_id: '<robot UUID>')
 ```
 
-## Documentation
+## Testing
+
+Testing uses [RSpec](https://github.com/rspec/rspec), [Webmock](https://github.com/bblimke/webmock) and [VCR](https://github.com/vcr/vcr).
+
+<strong>Tests will make real requests to the API endpoints</strong>. Ensure your test and production data is separated.
+
+<strong>Tests currently require real data to exist for each resource.</strong> 
+Tests will fail if no data is present in your account for a specific resource.
+For example `spec/browse_ai/dsl/robots_spec.rb` will fail if you have not yet added a robot to your account.
+
+### Test setup
+- Copy and rename `config/gem_secret.yml.example` to `config/gem_secret.yml` . <strong>Do not check `config/gem_secret.yml` into version control</strong>.
+- In `config/gem_secret.yml` fill in your test API key. `browse_ai_api_key: '<your API key>'`
+- Run rspec `bundle exec rspec` 
+
+## API Documentation
 https://www.browse.ai/docs/api/v2
 
 ## Contributing
