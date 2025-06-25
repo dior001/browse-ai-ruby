@@ -6,7 +6,7 @@ module BrowseAi
     # Get robots.
     # @return [Array, nil].
     def get_robots
-      Resources::Robot.parse(request(:get, 'robots/', nil), ['robots', 'items'])
+      Resources::Robot.parse(request(:get, 'robots/', nil), %w[robots items])
     end
 
     # GET /Robot/{id}

@@ -9,7 +9,7 @@ module BrowseAi
     def get_webhooks(robot_id:)
       raise ArgumentError, 'Robot ID cannot be blank' if robot_id.blank?
 
-      Resources::Webhook.parse(request(:get, "robots/#{robot_id}/webhooks/", nil), ['webhooks', 'items'])
+      Resources::Webhook.parse(request(:get, "robots/#{robot_id}/webhooks/", nil), %w[webhooks items])
     end
   end
 end

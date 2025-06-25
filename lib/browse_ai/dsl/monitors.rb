@@ -9,7 +9,7 @@ module BrowseAi
     def get_monitors(robot_id:)
       raise ArgumentError, 'Robot ID cannot be blank' if robot_id.blank?
 
-      Resources::Monitor.parse(request(:get, "robots/#{robot_id}/monitors/", nil), ['monitors', 'items'])
+      Resources::Monitor.parse(request(:get, "robots/#{robot_id}/monitors/", nil), %w[monitors items])
     end
 
     # GET /Monitor/{id}

@@ -9,7 +9,7 @@ module BrowseAi
     def get_tasks(robot_id:)
       raise ArgumentError, 'Robot ID cannot be blank' if robot_id.blank?
 
-      Resources::Task.parse(request(:get, "robots/#{robot_id}/tasks/", nil), ['tasks', 'items'])
+      Resources::Task.parse(request(:get, "robots/#{robot_id}/tasks/", nil), %w[tasks items])
     end
 
     # GET /Task/{id}
