@@ -7,3 +7,4 @@ end
 
 require 'browse_ai/resources/object'
 require 'browse_ai/resources/robot'
+require 'browse_ai/resources/task'
