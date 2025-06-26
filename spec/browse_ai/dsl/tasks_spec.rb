@@ -8,7 +8,25 @@ describe BrowseAi::DSL::Tasks do
     end
   end
 
-  # GET /tasks
+  # POST /robots/{robotId}/tasks
+  describe '#run_robot' do
+    let(:payload) do
+      {
+        'inputParameters' => {
+          'originUrl' => 'Test',
+        }
+      }.to_json
+    end
+
+    it 'creates a task and runs it' do
+      VCR.use_cassette('run_robot') do
+        task = BrowseAi.client.run_robot(robot_id:, payload:)
+        expect(task).to be_a(Task)
+      end
+    end
+  end
+
+  # GET robots/{robotId}/tasks
   describe '#get_tasks' do
     it 'returns an array of tasks' do
       VCR.use_cassette('get_tasks') do
@@ -19,7 +37,7 @@ describe BrowseAi::DSL::Tasks do
     end
   end
 
-  # GET /tasks/{id}
+  # GET robots/{robotId}/tasks/{id}
   describe '#get_task' do
     it 'returns an task' do
       id = VCR.use_cassette('get_tasks') do

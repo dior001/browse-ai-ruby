@@ -5,6 +5,7 @@ module BrowseAi
     # GET /Monitors
     # Get monitors.
     # @param [String] robot_id The ID of the robot the monitors belong to.
+    # @raise [ArgumentError] If the method arguments are blank.
     # @return [Array, nil].
     def get_monitors(robot_id:)
       raise ArgumentError, 'Robot ID cannot be blank' if robot_id.blank?
