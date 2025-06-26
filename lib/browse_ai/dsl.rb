@@ -5,6 +5,7 @@ module BrowseAi
   end
 end
 
+require 'browse_ai/dsl/bulk_runs'
 require 'browse_ai/dsl/monitors'
 require 'browse_ai/dsl/robots'
 require 'browse_ai/dsl/tasks'
@@ -14,6 +15,7 @@ require 'mime-types'
 
 module BrowseAi
   module DSL
+    include BulkRuns
     include Monitors
     include Robots
     include Tasks

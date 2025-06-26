@@ -5,6 +5,7 @@ module BrowseAi
   end
 end
 
+require 'browse_ai/resources/bulk_run'
 require 'browse_ai/resources/monitor'
 require 'browse_ai/resources/object'
 require 'browse_ai/resources/robot'
