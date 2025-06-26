@@ -16,7 +16,7 @@ module BrowseAi
       attribute :date_updated_utc, Time
 
       def inspect
-        "#<#{self.class.name}:#{format('0x00%x', (object_id << 1))} #{inspect_attributes}>"
+        "#<#{self.class.name}:#{format('0x00%x', object_id << 1)} #{inspect_attributes}>"
       end
 
       private

@@ -47,6 +47,13 @@ Get a robot's task.
 task = BrowseAi.client.get_tasks(robot_id: '<robot UUID>', id: '<task UUID>')
 ```
 
+Run a robot.
+```
+# Example JSON payload. The input parameters will vary depending on your robot's configuration.
+payload = {'inputParameters' => {'originUrl' => 'Test'}}.to_json 
+task = BrowseAi.client.run_robot(robot_id: '<robot UUID>', payload:)
+```
+
 Get a robot's monitors.
 ```
 monitors = BrowseAi.client.get_monitors(robot_id: '<robot UUID>')

@@ -5,15 +5,16 @@ module BrowseAi
     # POST /robots/{robotId}/tasks
     # Runs a task on a robot.
     # @param [String] robot_id The ID of the robot the tasks belongs to.
-    # @option options [Hash] :task The task to create.
+    # @param [String] :payload The JSON payload to send to the robot.
     # @raise [ArgumentError] If the method arguments are blank.
     # @return [BrowseAi::Resources::Task, nil].
-    def run_robot(robot_id:, payload: {})
+    def run_robot(robot_id:, payload:)
       raise ArgumentError, 'Robot ID cannot be blank' if robot_id.blank?
+      raise ArgumentError, 'Payload cannot be blank' if payload.blank?
 
       Resources::Task.parse(request(:post, "robots/#{robot_id}/tasks/", payload), ['result'])
     end
-    
+
     # GET robots/{robotId}/tasks
     # Get tasks.
     # @param [String] robot_id The ID of the robot the tasks belongs to.
