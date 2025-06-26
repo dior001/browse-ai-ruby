@@ -69,6 +69,23 @@ Get a robot's webhooks.
 webhooks = BrowseAi.client.get_webhooks(robot_id: '<robot UUID>')
 ```
 
+Get a robot's bulk runs.
+```
+bulk_runs = BrowseAi.client.get_bulk_runs(robot_id: '<robot UUID>')
+```
+
+Get a robot's bulk run.
+```
+bulk_run = BrowseAi.client.get_bulk_run(robot_id: '<robot UUID>', id: '<task UUID>')
+```
+
+Execute a bulk run of tasks on a robot.
+```
+# Example JSON payload. The input parameters will vary depending on your robot's configuration.
+payload = {'title' => 'Test Bulk Run', 'inputParameters' => [{'originUrl' => 'Test'}]}.to_json 
+bulk_run = BrowseAi.client.bulk_run_tasks(robot_id: '<robot UUID>', payload:)
+```
+
 ## Testing
 
 Testing uses [RSpec](https://github.com/rspec/rspec), [Webmock](https://github.com/bblimke/webmock) and [VCR](https://github.com/vcr/vcr).
