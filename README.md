@@ -50,7 +50,7 @@ task = BrowseAi.client.get_tasks(robot_id: '<robot UUID>', id: '<task UUID>')
 Run a robot.
 ```
 # Example JSON payload. The input parameters will vary depending on your robot's configuration.
-payload = {'inputParameters' => {'originUrl' => 'Test'}}.to_json 
+payload = {'inputParameters' => {'originUrl' => 'Test'}} 
 task = BrowseAi.client.run_robot(robot_id: '<robot UUID>', payload:)
 ```
 
@@ -82,7 +82,7 @@ bulk_run = BrowseAi.client.get_bulk_run(robot_id: '<robot UUID>', id: '<task UUI
 Execute a bulk run of tasks on a robot.
 ```
 # Example JSON payload. The input parameters will vary depending on your robot's configuration.
-payload = {'title' => 'Test Bulk Run', 'inputParameters' => [{'originUrl' => 'Test'}]}.to_json 
+payload = {'title' => 'Test Bulk Run', 'inputParameters' => [{'originUrl' => 'Test'}]} 
 bulk_run = BrowseAi.client.bulk_run_tasks(robot_id: '<robot UUID>', payload:)
 ```
 
